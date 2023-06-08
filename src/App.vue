@@ -57,6 +57,20 @@ const fontOptions = ["serif", "sans serif", "monospace"];
 					</v-btn>
 				</template>
 			</v-text-field>
+
+			<!-- Word Phonetics -->
+			<div
+				class="d-flex justify-space-between align-center w-100 mt-8"
+				elevation="0"
+			>
+				<div>
+					<h3 class="text-h2 font-weight-medium">keyboard</h3>
+					<p class="text-primary text-h5 font-weight-normal mt-4">/'kibc:d/'</p>
+				</div>
+				<v-btn size="70" variant="tonal" color="secondary" icon>
+					<v-icon color="primary" size="40">play_arrow</v-icon>
+				</v-btn>
+			</div>
 		</v-container>
 	</v-app>
 </template>
