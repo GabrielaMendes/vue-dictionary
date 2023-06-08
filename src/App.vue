@@ -1,5 +1,9 @@
 <script setup>
+import {ref} from "vue"
+
 const fontOptions = ["serif", "sans serif", "monospace"];
+
+const darkMode = ref(false)
 </script>
 
 <template>
@@ -33,11 +37,17 @@ const fontOptions = ["serif", "sans serif", "monospace"];
 				</v-list>
 			</v-menu>
 			<v-divider :vertical="true" :inset="true" class="ml-2"></v-divider>
-			<v-btn icon class="ml-2">
-				<v-icon size="x-large" class="material-symbols-outlined"
-					>dark_mode</v-icon
-				>
-			</v-btn>
+
+      <template v-slot:append>
+        <v-switch inset color="primary" class="ml-6 pt-5" v-model="darkMode">
+          <template v-slot:label>
+            <v-icon v-if="darkMode" size="x-large" class="material-symbols-outlined" color="primary"
+                  >dark_mode</v-icon>
+            <v-icon v-else size="x-large" class="material-symbols-outlined"
+                  >brightness_5</v-icon>
+          </template>
+        </v-switch>
+      </template>
 		</v-app-bar>
 
 		<v-container class="mt-16">
