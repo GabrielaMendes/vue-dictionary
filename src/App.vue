@@ -75,12 +75,12 @@ import SearchBar from "./components/SearchBar.vue"
 						<template v-slot:prepend>
 							<v-icon color="primary" size="small">arrow_forward</v-icon>
 						</template>
-						<v-list-item-title
-							>To type on a computer keyboard</v-list-item-title
+						<p
+							>To type on a computer keyboard</p
 						>
-						<v-list-item-subtitle class="mt-1 text-body-1"
+						<p class="mt-1 text-blue-grey-darken-1"
 							>"Keyboarding is the part of this job I like the
-							most."</v-list-item-subtitle
+							most."</p
 						>
 					</v-list-item>
 				</v-list>
