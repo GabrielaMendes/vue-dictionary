@@ -4,15 +4,18 @@ import DictionaryAPI from "./services/DictionaryAPI";
 import TheAppBar from "./components/TheAppBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import WordDetails from "./components/WordDetails.vue";
+import LoadingError from "./components/LoadingError.vue"
 
 const wordData = ref("");
+const error = ref("");
 
 const loadWord = async () => {
 	try {
 		const response = await DictionaryAPI.getWordData("dictionary");
-		wordData.value = response.data[0];
-	} catch (error) {
-		console.log(error);
+    wordData.value = response.data[0];
+    error.value = ""
+	} catch (e) {
+		error = e;
 	}
 };
 
@@ -28,8 +31,16 @@ loadWord();
 			<!-- Search Bar -->
 			<SearchBar />
 
-			<!-- Word -->
-			<WordDetails />
+			<!-- Word Found -->
+			<div v-if="!error">
+				<!-- Word -->
+				<WordDetails />
+			</div>
+
+			<!-- Word Not Found -->
+			<div v-else class="mx-auto mt-8 d-flex justify-center">
+				<LoadingError :error="error" />
+			</div>
 
 			<!-- Footer -->
 			<div class="mt-10 text-body-2">
