@@ -36,6 +36,7 @@ const handleSearch = async () => {
       base-color="transparent"
       color="transparent"
       :rules="[rules.required, rules.alphaValues]"
+      validate-on="submit"
       @input="resetValidation"
       @keyup.enter="handleSearch"
     >
