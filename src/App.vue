@@ -1,25 +1,29 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import DictionaryAPI from "./services/DictionaryAPI";
 import TheAppBar from "./components/TheAppBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import WordDetails from "./components/WordDetails.vue";
-import LoadingError from "./components/LoadingError.vue"
+import LoadingError from "./components/LoadingError.vue";
 
 const wordData = ref("");
 const error = ref("");
+const loading = ref(true);
 
-const loadWord = async () => {
+const loadWord = async (word) => {
 	try {
-		const response = await DictionaryAPI.getWordData("dictionary");
-    wordData.value = response.data[0];
-    error.value = ""
+		const response = await DictionaryAPI.getWordData(word);
+		wordData.value = response.data[0];
+		error.value = "";
 	} catch (e) {
 		error = e;
 	}
 };
 
-loadWord();
+onMounted(async () => {
+	await loadWord("dictionary");
+	loading.value = false;
+});
 </script>
 
 <template>
@@ -31,16 +35,26 @@ loadWord();
 			<!-- Search Bar -->
 			<SearchBar />
 
-			<!-- Word Found -->
-			<div v-if="!error">
-				<!-- Word -->
-				<WordDetails />
-			</div>
+      <!-- Progress Bar -->
+				<v-progress-linear
+          v-if="loading"
+					indeterminate
+					:height="7"
+					rounded
+					bg-color="tertiary"
+					color="primary"
+          class="mt-4"
+				></v-progress-linear>
 
-			<!-- Word Not Found -->
-			<div v-else class="mx-auto mt-8 d-flex justify-center">
-				<LoadingError :error="error" />
-			</div>
+      <!-- Request Completed -->
+			<div v-else>
+        <!-- Word Found -->
+        <WordDetails v-if="!error" />
+        <!-- Word Not Found -->
+        <div v-else class="mx-auto mt-8 d-flex justify-center">
+          <LoadingError :error="error" />
+        </div>
+      </div>
 
 			<!-- Footer -->
 			<div class="mt-10 text-body-2">

@@ -1,7 +1,7 @@
 <template>
 	<!-- Word Phonetics -->
 	<div
-		class="d-flex justify-space-between align-center w-100 mt-8"
+		class="d-flex justify-space-between align-center w-100 mt-6"
 		elevation="0"
 	>
 		<div>
