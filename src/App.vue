@@ -10,7 +10,7 @@ const wordData = ref("");
 const error = ref("");
 const loading = ref(true);
 
-const loadWord = async (word) => {
+const loadWordData = async (word) => {
 	try {
 		const response = await DictionaryAPI.getWordData(word);
 		wordData.value = response.data[0];
@@ -20,8 +20,14 @@ const loadWord = async (word) => {
 	}
 };
 
+const onSearchRequest = async (word) => {
+  loading.value = true;
+  await loadWordData(word)
+  loading.value = false;
+}
+
 onMounted(async () => {
-	await loadWord("dictionary");
+	await loadWordData("dictionary");
 	loading.value = false;
 });
 </script>
@@ -33,7 +39,7 @@ onMounted(async () => {
 
 		<v-container class="mt-16">
 			<!-- Search Bar -->
-			<SearchBar />
+			<SearchBar @search-request="onSearchRequest" />
 
       <!-- Progress Bar -->
 				<v-progress-linear

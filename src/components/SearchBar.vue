@@ -4,6 +4,8 @@ import { ref } from 'vue';
 const word = ref("")
 const wordInput = ref(null)
 
+const emit = defineEmits(["searchRequest"])
+
 const rules = {
   required: (value) => !!(value.trim()) || 'You must enter a word',
   alphaValues: (value) => /^[A-Za-z]*$/.test(value.trim()) || 'You must enter a valid word (only letters)',
@@ -21,7 +23,7 @@ const handleSearch = async () => {
   }
 
   word.value = word.value.trim().toLowerCase()
-  console.log('search')
+  emit("searchRequest", word.value)
 }
 </script>
 
