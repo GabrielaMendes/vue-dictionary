@@ -55,7 +55,7 @@ onMounted(async () => {
       <!-- Request Completed -->
 			<div v-else>
         <!-- Word Found -->
-        <WordDetails v-if="!error" />
+        <WordDetails :wordData="wordData" v-if="!error" />
         <!-- Word Not Found -->
         <div v-else class="mx-auto mt-8 d-flex justify-center">
           <LoadingError :error="error" />
