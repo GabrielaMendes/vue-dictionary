@@ -71,14 +71,14 @@ onMounted(async () => {
 			<!-- Footer -->
 			<div class="mt-10 text-body-2">
 				<v-divider></v-divider>
-				<p class="mt-6 text-blue-grey-lighten-1">
+				<p class="mt-6 text-text-secondary">
 					Powered by
 					<a
 						href="https://dictionaryapi.dev/"
 						target="_blank"
 						class="text-text-primary ml-3"
 						>Dictionary API
-						<v-icon color="blue-grey-lighten-1" size="medium" class="ml-1"
+						<v-icon color="text-secondary" size="medium" class="ml-1"
 							>open_in_new</v-icon
 						></a
 					>

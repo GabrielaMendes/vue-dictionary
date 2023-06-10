@@ -20,6 +20,7 @@ export default createVuetify({
 				colors: {
 					background: "#FDFDFD",
 					"text-primary": "#17171F",
+					"text-secondary": "#78909C",
 					primary: "#009688",
 					secondary: "#80CBC4",
 					tertiary: "#E0F2F1",
@@ -30,6 +31,7 @@ export default createVuetify({
 				colors: {
 					background: "#17171F",
 					"text-primary": "#FDFDFD",
+					"text-secondary": "#90A4AE",
 					primary: "#00BFA5",
 					secondary: "#64FFDA",
 					tertiary: "#00695C",
