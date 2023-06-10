@@ -16,7 +16,7 @@ const loadWordData = async (word) => {
 		wordData.value = response.data[0];
 		error.value = "";
 	} catch (e) {
-		error = e;
+		error.value = e;
 	}
 };
 
@@ -55,7 +55,9 @@ onMounted(async () => {
       <!-- Request Completed -->
 			<div v-else>
         <!-- Word Found -->
-        <WordDetails :wordData="wordData" v-if="!error" />
+        <div v-if="!error">
+          <WordDetails :wordData="wordData" />
+        </div>
         <!-- Word Not Found -->
         <div v-else class="mx-auto mt-8 d-flex justify-center">
           <LoadingError :error="error" />
