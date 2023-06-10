@@ -6,15 +6,16 @@ const props = defineProps({
 	wordData: Object,
 });
 
-const disableBtn = ref(false);
-
-const playWord = async () => {
-	disableBtn.value = true;
-	const audioUrl = props.wordData.phonetics.find((p) => {
+const audioUrl = props.wordData.phonetics.find((p) => {
 		return p.audio !== "";
-	});
+});
 
-	const audio = new Audio(await audioUrl.audio);
+const disableBtn = ref(!Boolean(audioUrl));
+
+const playWord = () => {
+	disableBtn.value = true;
+
+	const audio = new Audio(audioUrl.audio);
 	audio.play();
 	disableBtn.value = false;
 };
