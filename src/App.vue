@@ -111,7 +111,7 @@ $font-family-serif: 'Noto Serif', serif;
   .v-theme--light:not(.v-btn) {
     color: rgb(var(--v-theme-text-primary));
 
-    * {
+    *:not(.v-switch__thumb) {
       color: rgb(var(--v-theme-text-primary));
     }
   }
@@ -119,7 +119,7 @@ $font-family-serif: 'Noto Serif', serif;
   .v-theme--dark:not(.v-btn) {
     color: rgb(var(--v-theme-text-primary));
 
-    *:not(.v-icon) {
+    *:not(.v-switch__thumb) {
       color: rgb(var(--v-theme-text-primary));
     }
   }
