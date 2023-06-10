@@ -33,11 +33,14 @@ onMounted(async () => {
 	loading.value = false;
 
   theme.global.name.value = localStorage.getItem("theme") || "light"
+
+  const el = document.querySelector(".v-application")
+  console.log(el)
 });
 </script>
 
 <template>
-	<v-app>
+	<v-app class="customFont">
 		<!-- App Bar -->
 		<TheAppBar />
 
@@ -88,12 +91,37 @@ onMounted(async () => {
 	</v-app>
 </template>
 
-<style>
+<style lang="scss">
 .material-symbols-outlined {
 	font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .logo {
 	letter-spacing: 1px;
+}
+
+$font-family-serif: 'Noto Serif', serif;
+
+.v-application {
+  *:not(.v-icon) {
+    font-family: $font-family-serif !important;
+  }
+  font-family: $font-family-serif !important;
+
+  .v-theme--light:not(.v-btn) {
+    color: rgb(var(--v-theme-text-primary));
+
+    * {
+      color: rgb(var(--v-theme-text-primary));
+    }
+  }
+
+  .v-theme--dark:not(.v-btn) {
+    color: rgb(var(--v-theme-text-primary));
+
+    *:not(.v-icon) {
+      color: rgb(var(--v-theme-text-primary));
+    }
+  }
 }
 </style>

@@ -15,10 +15,9 @@ const toggleTheme = () => {
 };
 
 onMounted(() => {
- 	if (localStorage.getItem("theme")) {
-    console.log(localStorage.getItem("theme"))
-  darkMode.value = (localStorage.getItem("theme") === "dark");
- 	}
+	if (localStorage.getItem("theme")) {
+		darkMode.value = localStorage.getItem("theme") === "dark";
+	}
 });
 </script>
 
@@ -31,7 +30,7 @@ onMounted(() => {
 			>
 		</template>
 		<v-app-bar-title class="font-weight-medium">
-			<span class="logo text-text-primary">VueDictionary</span>
+			<span class="logo">VueDictionary</span>
 		</v-app-bar-title>
 
 		<!-- Actions -->
@@ -41,7 +40,7 @@ onMounted(() => {
 				<template v-slot:activator="{ props }">
 					<v-btn
 						v-bind="props"
-						class="text-capitalize text-body-1 text-text-primary d-none d-sm-flex"
+						class="text-capitalize text-body-1 d-none d-sm-flex"
 					>
 						<span>serif</span>
 						<v-icon class="ml-1" size="x-large" color="primary"
@@ -55,7 +54,6 @@ onMounted(() => {
 							<v-list-item
 								v-bind="props"
 								style="cursor: pointer"
-								class="text-text-primary"
 								:class="{ 'bg-tertiary': isHovering }"
 							>
 								<v-list-item-title :value="font" class="text-capitalize">{{
@@ -106,7 +104,7 @@ onMounted(() => {
 					<v-list-item>
 						<v-btn
 							flat
-							class="mr-4 text-text-primary"
+							class="mr-4"
 							:color="darkMode ? 'inherit' : 'tertiary'"
 							@click="
 								darkMode = false;
@@ -119,7 +117,6 @@ onMounted(() => {
 						>
 						<v-btn
 							flat
-							class="text-text-primary"
 							:color="darkMode ? 'tertiary' : 'inherit'"
 							@click="
 								darkMode = true;
@@ -138,7 +135,7 @@ onMounted(() => {
 						style="cursor: pointer"
 						v-for="font in fontOptions"
 						:key="font"
-						class="text-center text-capitalize text-text-primary"
+						class="text-center text-capitalize"
 						:class="{ 'bg-tertiary': fontChoice === font }"
 					>
 						<v-list-item-title :value="font" class="text-capitalize">{{

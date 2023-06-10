@@ -24,11 +24,11 @@ const playWord = () => {
 <template>
 	<!-- Word Phonetics -->
 	<div
-		class="d-flex justify-space-between align-center w-100 mt-6 text-text-primary"
+		class="d-flex justify-space-between align-center w-100 mt-6"
 		elevation="0"
 	>
 		<div>
-			<h3 class="text-h2 font-weight-medium">{{ wordData.word }}</h3>
+			<h3 class="text-h2 font-weight-medium text-text-primary">{{ wordData.word }}</h3>
 			<p class="text-primary text-h5 font-weight-normal mt-4">
 				{{ wordData.phonetic }}
 			</p>
