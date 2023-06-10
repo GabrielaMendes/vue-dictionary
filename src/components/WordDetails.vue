@@ -23,7 +23,7 @@ const playWord = async () => {
 <template>
 	<!-- Word Phonetics -->
 	<div
-		class="d-flex justify-space-between align-center w-100 mt-6"
+		class="d-flex justify-space-between align-center w-100 mt-6 text-text-primary"
 		elevation="0"
 	>
 		<div>

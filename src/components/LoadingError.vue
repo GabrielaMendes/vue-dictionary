@@ -1,5 +1,5 @@
 <template>
-	<v-card width="250px" flat variant="outlined" style="border-color: #80cbc4">
+	<v-card width="250px" flat variant="outlined" style="border-color: rgb(var(--v-theme-secondary))">
 		<template v-slot:title>
 			<div class="d-flex align-center justify-center">
 				<v-icon

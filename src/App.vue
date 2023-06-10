@@ -72,7 +72,7 @@ onMounted(async () => {
 					<a
 						href="https://dictionaryapi.dev/"
 						target="_blank"
-						class="text-black ml-3"
+						class="text-text-primary ml-3"
 						>Dictionary API
 						<v-icon color="blue-grey-lighten-1" size="medium" class="ml-1"
 							>open_in_new</v-icon

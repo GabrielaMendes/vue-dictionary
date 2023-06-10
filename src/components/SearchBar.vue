@@ -33,7 +33,7 @@ const handleSearch = async () => {
       v-model="word"
       variant="filled"
       placeholder="Enter a word..."
-      class="mt-4"
+      class="mt-4 text-text-primary"
       rounded="lg"
       base-color="transparent"
       color="transparent"
