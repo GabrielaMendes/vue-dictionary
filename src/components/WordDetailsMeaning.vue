@@ -27,14 +27,14 @@ defineProps({
 						</p>
 					</div>
 				</div>
-
-				<div v-if="definition.synonyms.length > 0" class="mt-6 ml-6 d-flex">
-					<h3 class="text-h5 text-blue-grey-lighten-1 mr-6">Synonym</h3>
-					<p class="text-h5 font-weight-medium text-primary">
-						{{ definition.synonyms[0] }}
-					</p>
-				</div>
 			</v-list-item>
 		</v-list>
+    
+    <div v-if="meaning.synonyms.length > 0" class="mt-6 ml-6 d-flex">
+      <h3 class="text-h5 text-blue-grey-lighten-1 mr-6">Synonym</h3>
+      <p class="text-h5 font-weight-medium text-primary">
+        {{ meaning.synonyms[0] }}
+      </p>
+    </div>
 	</div>
 </template>
