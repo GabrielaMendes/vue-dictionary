@@ -27,7 +27,7 @@ const onSearchRequest = async (word) => {
 }
 
 onMounted(async () => {
-	await loadWordData("dictionary");
+	await loadWordData("keyboard");
 	loading.value = false;
 });
 </script>

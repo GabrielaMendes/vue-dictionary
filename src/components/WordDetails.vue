@@ -1,9 +1,23 @@
 <script setup>
+import { ref } from "vue";
 import WordDetailsMeaning from "./WordDetailsMeaning.vue";
 
-defineProps({
+const props = defineProps({
 	wordData: Object,
 });
+
+const disableBtn = ref(false);
+
+const playWord = async () => {
+	disableBtn.value = true;
+	const audioUrl = props.wordData.phonetics.find((p) => {
+		return p.audio !== "";
+	});
+
+	const audio = new Audio(await audioUrl.audio);
+	audio.play();
+	disableBtn.value = false;
+};
 </script>
 
 <template>
@@ -18,8 +32,15 @@ defineProps({
 				{{ wordData.phonetic }}
 			</p>
 		</div>
-		<v-btn size="70" variant="tonal" color="secondary" icon>
-			<v-icon color="primary" size="40">play_arrow</v-icon>
+		<v-btn
+			:disabled="disableBtn"
+			aria-label="play"
+			size="70"
+			variant="tonal"
+			color="secondary"
+			icon
+		>
+			<v-icon color="primary" size="40" @click="playWord">play_arrow</v-icon>
 		</v-btn>
 	</div>
 
