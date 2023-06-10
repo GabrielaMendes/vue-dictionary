@@ -103,7 +103,7 @@ onMounted(async () => {
 $font-family-serif: 'Noto Serif', serif;
 
 .v-application {
-  *:not(.v-icon) {
+  [class*='text-']:not(.v-icon) {
     font-family: $font-family-serif !important;
   }
   font-family: $font-family-serif !important;
@@ -111,7 +111,7 @@ $font-family-serif: 'Noto Serif', serif;
   .v-theme--light:not(.v-btn) {
     color: rgb(var(--v-theme-text-primary));
 
-    *:not(.v-switch__thumb) {
+    [class*='text-'] {
       color: rgb(var(--v-theme-text-primary));
     }
   }
@@ -119,7 +119,7 @@ $font-family-serif: 'Noto Serif', serif;
   .v-theme--dark:not(.v-btn) {
     color: rgb(var(--v-theme-text-primary));
 
-    *:not(.v-switch__thumb) {
+    [class*='text-'] {
       color: rgb(var(--v-theme-text-primary));
     }
   }
