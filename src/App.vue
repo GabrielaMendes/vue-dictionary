@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { useTheme } from "vuetify/lib/framework.mjs";
 import DictionaryAPI from "./services/DictionaryAPI";
 import TheAppBar from "./components/TheAppBar.vue";
 import SearchBar from "./components/SearchBar.vue";
@@ -9,6 +10,7 @@ import LoadingError from "./components/LoadingError.vue";
 const wordData = ref("");
 const error = ref("");
 const loading = ref(true);
+const theme = useTheme();
 
 const loadWordData = async (word) => {
 	try {
@@ -29,6 +31,8 @@ const onSearchRequest = async (word) => {
 onMounted(async () => {
 	await loadWordData("keyboard");
 	loading.value = false;
+
+  theme.global.name.value = localStorage.getItem("theme") || "light"
 });
 </script>
 
