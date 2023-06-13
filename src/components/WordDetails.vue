@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
+import { useDisplay } from "vuetify";
 import WordDetailsMeaning from "./WordDetailsMeaning.vue";
+
+const { xs: mobile } = useDisplay()
 
 const props = defineProps({
 	wordData: Object,
@@ -28,7 +31,12 @@ const playWord = () => {
 		elevation="0"
 	>
 		<div>
-			<h3 class="text-h2 font-weight-medium text-text-primary">{{ wordData.word }}</h3>
+			<h2 
+        class="font-weight-medium text-text-primary"
+        :style="{'font-size': mobile ? '54px' : '62px'}"
+      >
+        {{ wordData.word }}
+      </h2>
 			<p class="text-primary text-h5 font-weight-normal mt-4">
 				{{ wordData.phonetic }}
 			</p>
@@ -36,7 +44,7 @@ const playWord = () => {
 		<v-btn
 			:disabled="disableBtn"
 			aria-label="play"
-			size="70"
+			:size="mobile ? '60' : '70'"
 			variant="tonal"
 			color="secondary"
 			icon
