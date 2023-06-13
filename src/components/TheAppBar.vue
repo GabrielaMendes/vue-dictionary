@@ -156,3 +156,9 @@ onMounted(() => {
 		</template>
 	</v-app-bar>
 </template>
+
+<style scoped>
+.logo {
+	letter-spacing: 1px;
+}
+</style>
