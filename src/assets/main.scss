@@ -1,0 +1,11 @@
+:root {
+  --font-family: 'Noto Serif', serif
+}
+
+body {
+  font-family: var(--font-family);
+
+  [class*='text-']:not(.v-icon) {
+     font-family: var(--font-family) !important;
+  }
+}

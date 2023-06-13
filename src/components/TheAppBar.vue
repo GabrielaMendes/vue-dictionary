@@ -2,9 +2,11 @@
 import { onMounted } from "vue";
 import { ref } from "vue";
 import { useTheme } from "vuetify/lib/framework.mjs";
+import { useFonts } from "@/composables/useFonts"
 
-const fontOptions = ["serif", "sans serif", "monospace"];
-const fontChoice = ref("serif");
+const { fonts, currFont, setFont } = useFonts()
+const fontOptions = Object.keys(fonts);
+
 const darkMode = ref(false);
 const theme = useTheme();
 
@@ -13,6 +15,11 @@ const toggleTheme = () => {
 	theme.global.name.value = themeValue;
 	localStorage.setItem("theme", themeValue);
 };
+
+const chooseFont = (font) => {
+  localStorage.setItem("font", font);
+  setFont(font);
+}
 
 onMounted(() => {
 	if (localStorage.getItem("theme")) {
@@ -52,6 +59,7 @@ onMounted(() => {
 					<div v-for="font in fontOptions" :key="font">
 						<v-hover v-slot="{ isHovering, props }">
 							<v-list-item
+                @click="chooseFont(font)"
 								v-bind="props"
 								style="cursor: pointer"
 								:class="{ 'bg-tertiary': isHovering }"
@@ -132,11 +140,12 @@ onMounted(() => {
 					<v-divider class="mt-2"></v-divider>
 
 					<v-list-item
-						style="cursor: pointer"
-						v-for="font in fontOptions"
-						:key="font"
+            v-for="font in fontOptions"
+            :key="font"
+            @click="chooseFont(font)"
+            style="cursor: pointer"
 						class="text-center text-capitalize"
-						:class="{ 'bg-tertiary': fontChoice === font }"
+						:class="{ 'bg-tertiary': font === currFont }"
 					>
 						<v-list-item-title :value="font" class="text-capitalize">{{
 							font

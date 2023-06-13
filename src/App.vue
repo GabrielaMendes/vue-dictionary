@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useTheme } from "vuetify/lib/framework.mjs";
+import { useFonts } from "./composables/useFonts";
 import DictionaryAPI from "./services/DictionaryAPI";
 import TheAppBar from "./components/TheAppBar.vue";
 import SearchBar from "./components/SearchBar.vue";
@@ -11,6 +12,7 @@ const wordData = ref("");
 const error = ref("");
 const loading = ref(true);
 const theme = useTheme();
+const { setFont } = useFonts();
 
 const loadWordData = async (word) => {
 	try {
@@ -23,19 +25,19 @@ const loadWordData = async (word) => {
 };
 
 const onSearchRequest = async (word) => {
-  loading.value = true;
-  await loadWordData(word)
-  loading.value = false;
-}
+	loading.value = true;
+	await loadWordData(word);
+	loading.value = false;
+};
 
 onMounted(async () => {
 	await loadWordData("keyboard");
 	loading.value = false;
 
-  theme.global.name.value = localStorage.getItem("theme") || "light"
-
-  const el = document.querySelector(".v-application")
-  console.log(el)
+	theme.global.name.value = localStorage.getItem("theme") || "light";
+	
+  const fontFamily = localStorage.getItem("font") || "serif";
+	setFont(fontFamily);
 });
 </script>
 
@@ -48,28 +50,28 @@ onMounted(async () => {
 			<!-- Search Bar -->
 			<SearchBar @search-request="onSearchRequest" />
 
-      <!-- Progress Bar -->
-				<v-progress-linear
-          v-if="loading"
-					indeterminate
-					:height="7"
-					rounded
-					bg-color="tertiary"
-					color="primary"
-          class="mt-4"
-				></v-progress-linear>
+			<!-- Progress Bar -->
+			<v-progress-linear
+				v-if="loading"
+				indeterminate
+				:height="7"
+				rounded
+				bg-color="tertiary"
+				color="primary"
+				class="mt-4"
+			></v-progress-linear>
 
-      <!-- Request Completed -->
+			<!-- Request Completed -->
 			<div v-else>
-        <!-- Word Found -->
-        <div v-if="!error">
-          <WordDetails :wordData="wordData" />
-        </div>
-        <!-- Word Not Found -->
-        <div v-else class="mx-auto mt-8 d-flex justify-center">
-          <LoadingError :error="error" />
-        </div>
-      </div>
+				<!-- Word Found -->
+				<div v-if="!error">
+					<WordDetails :wordData="wordData" />
+				</div>
+				<!-- Word Not Found -->
+				<div v-else class="mx-auto mt-8 d-flex justify-center">
+					<LoadingError :error="error" />
+				</div>
+			</div>
 
 			<!-- Footer -->
 			<div class="mt-10 text-body-2">
@@ -100,28 +102,21 @@ onMounted(async () => {
 	letter-spacing: 1px;
 }
 
-$font-family-serif: 'Noto Serif', serif;
-
 .v-application {
-  [class*='text-']:not(.v-icon) {
-    font-family: $font-family-serif !important;
-  }
-  font-family: $font-family-serif !important;
+	.v-theme--light:not(.v-btn) {
+		color: rgb(var(--v-theme-text-primary));
 
-  .v-theme--light:not(.v-btn) {
-    color: rgb(var(--v-theme-text-primary));
+		[class*="text-"] {
+			color: rgb(var(--v-theme-text-primary));
+		}
+	}
 
-    [class*='text-'] {
-      color: rgb(var(--v-theme-text-primary));
-    }
-  }
+	.v-theme--dark:not(.v-btn) {
+		color: rgb(var(--v-theme-text-primary));
 
-  .v-theme--dark:not(.v-btn) {
-    color: rgb(var(--v-theme-text-primary));
-
-    [class*='text-'] {
-      color: rgb(var(--v-theme-text-primary));
-    }
-  }
+		[class*="text-"] {
+			color: rgb(var(--v-theme-text-primary));
+		}
+	}
 }
 </style>
