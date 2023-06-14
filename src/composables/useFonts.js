@@ -4,7 +4,7 @@ export const useFonts = () => {
 	const fonts = {
 		serif: "'Noto Serif', serif",
 		"sans serif": "'Poppins', sans-serif",
-		mono: "'JetBrains Mono', monospace",
+		monospace: "'JetBrains Mono', monospace",
 	};
 
   const currFont = ref("serif")
