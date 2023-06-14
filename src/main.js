@@ -1,8 +1,9 @@
-import "./assets/main.scss"
-import { createApp } from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
+import "./assets/main.scss";
+import { createApp } from "vue";
+import { registerSW } from "virtual:pwa-register";
+import App from "./App.vue";
+import vuetify from "./plugins/vuetify";
 
-createApp(App)
-  .use(vuetify)
-  .mount('#app')
+registerSW({ imediate: true });
+
+createApp(App).use(vuetify).mount("#app");
