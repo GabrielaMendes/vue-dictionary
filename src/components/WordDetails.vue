@@ -30,9 +30,10 @@ const playWord = () => {
 		class="d-flex justify-space-between align-center w-100 mt-3 mt-sm-4"
 		elevation="0"
 	>
-		<div class="mr-2">
+		<div class="w-75">
 			<h2 
         class="font-weight-medium text-text-primary"
+        style="overflow-wrap: break-word;"
         :style="{'font-size': mobile ? '54px' : '62px'}"
       >
         {{ wordData.word }}
