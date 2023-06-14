@@ -30,7 +30,7 @@ const playWord = () => {
 		class="d-flex justify-space-between align-center w-100 mt-6"
 		elevation="0"
 	>
-		<div>
+		<div class="mr-2">
 			<h2 
         class="font-weight-medium text-text-primary"
         :style="{'font-size': mobile ? '54px' : '62px'}"
