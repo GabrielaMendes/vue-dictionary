@@ -27,7 +27,7 @@ const playWord = () => {
 <template>
 	<!-- Word Phonetics -->
 	<div
-		class="d-flex justify-space-between align-center w-100 mt-6"
+		class="d-flex justify-space-between align-center w-100 mt-3 mt-sm-4"
 		elevation="0"
 	>
 		<div class="mr-2">
