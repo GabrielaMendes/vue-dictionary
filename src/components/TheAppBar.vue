@@ -2,9 +2,9 @@
 import { onMounted } from "vue";
 import { ref } from "vue";
 import { useTheme } from "vuetify/lib/framework.mjs";
-import { useFonts } from "@/composables/useFonts"
+import { useFonts } from "@/composables/useFonts";
 
-const { fonts, currFont, setFont } = useFonts()
+const { fonts, currFont, setFont } = useFonts();
 const fontOptions = Object.keys(fonts);
 
 const darkMode = ref(false);
@@ -17,9 +17,9 @@ const toggleTheme = () => {
 };
 
 const chooseFont = (font) => {
-  localStorage.setItem("font", font);
-  setFont(font);
-}
+	localStorage.setItem("font", font);
+	setFont(font);
+};
 
 onMounted(() => {
 	if (localStorage.getItem("theme")) {
@@ -32,9 +32,11 @@ onMounted(() => {
 	<v-app-bar flat color="background">
 		<!-- Logo -->
 		<template v-slot:prepend>
-			<v-icon color="primary" size="x-large" class="material-symbols-outlined"
-				>menu_book</v-icon
-			>
+			<img
+        :width="35"
+        :height="35"
+				src="../assets/bar-icon.svg"
+			/>
 		</template>
 		<v-app-bar-title class="font-weight-medium">
 			<span class="logo">VueDictionary</span>
@@ -59,7 +61,7 @@ onMounted(() => {
 					<div v-for="font in fontOptions" :key="font">
 						<v-hover v-slot="{ isHovering, props }">
 							<v-list-item
-                @click="chooseFont(font)"
+								@click="chooseFont(font)"
 								v-bind="props"
 								style="cursor: pointer"
 								:class="{ 'bg-tertiary': isHovering }"
@@ -140,10 +142,10 @@ onMounted(() => {
 					<v-divider class="mt-2"></v-divider>
 
 					<v-list-item
-            v-for="font in fontOptions"
-            :key="font"
-            @click="chooseFont(font)"
-            style="cursor: pointer"
+						v-for="font in fontOptions"
+						:key="font"
+						@click="chooseFont(font)"
+						style="cursor: pointer"
 						class="text-center text-capitalize"
 						:class="{ 'bg-tertiary': font === currFont }"
 					>

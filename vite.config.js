@@ -14,25 +14,26 @@ export default defineConfig({
 		vuetify({
 			autoImport: true,
 		}),
-    VitePWA({
-      registerType: "autoUpdate",
-      devOptions: {
-        enabled: true,
-      },
-      manifest: {
-        name: "VueDictionary",
-        icons: [
-          {
-            src: "./assets/img/pwa-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-        ]
-      },
-      workbox: {
-        globPatterns: ["**/*.{js,css,html,png,ico}"],
-      }
-    }),
+		VitePWA({
+			registerType: "autoUpdate",
+			devOptions: {
+				enabled: true,
+			},
+			manifest: {
+				name: "VueDictionary",
+				short_name: "VueDictionary",
+				icons: [
+					{
+						src: "./assets/img/pwa-192x192.png",
+						sizes: "192x192",
+						type: "image/png",
+					},
+				],
+			},
+			workbox: {
+				globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+			},
+		}),
 	],
 	resolve: {
 		alias: {
