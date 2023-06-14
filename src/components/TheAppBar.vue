@@ -49,7 +49,7 @@ onMounted(() => {
 						v-bind="props"
 						class="text-capitalize text-body-1 d-none d-sm-flex"
 					>
-						<span>serif</span>
+						<span>{{ currFont }}</span>
 						<v-icon class="ml-1" size="x-large" color="primary"
 							>expand_more</v-icon
 						>
