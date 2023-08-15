@@ -1,29 +1,55 @@
-# online-dictionary
+# Online Dictionary
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a PWA Online Dictionary inspired by the[Dictionary web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL).
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Other libraries](#other-libraries)
 
-## Customize configuration
+## Overview
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Features
 
-## Project Setup
+Users should be able to:
+  - Search for words using the input field
+  - See the Free Dictionary API's response for the searched word
+  - See a form validation message when trying to submit a blank form
+  - Play the audio file for a word when it's available
+  - Switch between serif, sans serif, and monospace fonts
+  - Switch between light and dark themes
+  - View the optimal layout for the interface depending on their device's screen size
 
-```sh
-npm install
-```
+### Screenshots
 
-### Compile and Hot-Reload for Development
+Desktop view:
 
-```sh
-npm run dev
-```
+![](./screenshots/screenshot-desktop.png)
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
+Mobile view:
+
+![](./screenshots/screenshot-mobile.png)
+
+
+### Links
+
+- Live Site URL: [VueDictionary](https://vue-dictionary.vercel.app/)
+
+## My process
+
+### Built with
+
+- [Vue.js](https://vuejs.org/) - JS framework
+- [Vite](https://vitejs.dev/) - Frontend build tool
+- [Vuetify](https://vuetifyjs.com) - Vue Component Framework
+
+### Other libraries
+
+- [Axios](https://axios-http.com/) - Promise based HTTP client
+
